@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carla Rafael - Mentora em Alta Produtividade & Performance | CMRFormação</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --turquoise: #4DD0E1;
+            --lime: #C0D72D;
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--turquoise);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--lime);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(77, 208, 225, 0.1) 0%, rgba(192, 215, 45, 0.1) 100%);
+            padding: 100px 5% 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(77, 208, 225, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-50px, 50px) rotate(180deg); }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .hero-text .highlight {
+            background: linear-gradient(135deg, var(--turquoise), var(--lime));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--turquoise), var(--lime));
+            color: white;
+            box-shadow: 0 10px 30px rgba(77, 208, 225, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(77, 208, 225, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--dark);
+            border: 2px solid var(--turquoise);
+        }
+
+        .btn-secondary:hover {
+            background: var(--turquoise);
+            color: white;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image-placeholder {
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--turquoise), var(--lime));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            color: white;
+            box-shadow: 0 20px 60px rgba(77, 208, 225, 0.3);
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .sobre {
+            padding: 100px 5%;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--turquoise), var(--lime));
+            border-radius: 2px;
+        }
+
+        .sobre-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 2rem auto 3rem;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .sobre-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .certificacao-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--turquoise);
+        }
+
+        .certificacao-card:nth-child(even) {
+            border-top-color: var(--lime);
+        }
+
+        .certificacao-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .certificacao-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .problema {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, rgba(77, 208, 225, 0.05) 0%, rgba(192, 215, 45, 0.05) 100%);
+        }
+
+        .problema-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .problema h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+
+        .problema-intro {
+            font-size: 1.2rem;
+            color: #555;
+            margin-top: 1rem;
+        }
+
+        .problemas-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problema-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #e74c3c;
+            text-align: left;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .problema-item:hover {
+            transform: translateX(10px);
+        }
+
+        .problema-item h3 {
+            color: #e74c3c;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .problema-item p {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .beneficios {
+            padding: 100px 5%;
+            background: white;
+        }
+
+        .beneficios-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .beneficio-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .beneficio-card:hover {
+            transform: translateY(-10px);
+            background: var(--light);
+        }
+
+        .beneficio-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .beneficio-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .beneficio-card p {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .programas {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, rgba(77, 208, 225, 0.05) 0%, rgba(192, 215, 45, 0.05) 100%);
+        }
+
+        .programas-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .programa-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .programa-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .programa-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--turquoise), var(--lime));
+            color: white;
+            text-align: center;
+        }
+
+        .programa-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .programa-body {
+            padding: 2rem;
+        }
+
+        .programa-body ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .programa-body li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .programa-body li::before {
+            content: '✓';
+            color: var(--lime);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .testemunhos {
+            padding: 100px 5%;
+            background: white;
+        }
+
+        .testemunhos-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testemunho-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--turquoise);
+            transition: transform 0.3s;
+        }
+
+        .testemunho-card:hover {
+            transform: translateX(10px);
+        }
+
+        .testemunho-card p {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testemunho-autor {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .faq {
+            padding: 100px 5%;
+            background: var(--light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--lime);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--turquoise);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            margin-top: 1rem;
+            color: #555;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .cta-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, var(--turquoise), var(--lime));
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--turquoise);
+            border: none;
+        }
+
+        .btn-white:hover {
+            background: var(--dark);
+            color: white;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--turquoise);
+        }
+
+        .footer-section p {
+            color: rgba(255,255,255,0.7);
+            margin: 0.5rem 0;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        .footer-section a:hover {
+            color: var(--lime);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            margin: 0;
+        }
+
+        .social-links a:hover {
+            background: var(--turquoise);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image-placeholder {
+                width: 300px;
+                height: 300px;
+                font-size: 80px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,10 90,30 90,70 50,90" fill="#4DD0E1"/>
+                    <polygon points="50,10 10,30 10,70 50,90" fill="#C0D72D"/>
+                    <polygon points="50,10 90,30 50,50 10,30" fill="#ffffff"/>
+                </svg>
+                <span>CMRFormação</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#programas">Programas</a></li>
+                <li><a href="#testemunhos">Testemunhos</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>
+                    Maximiza os teus <span class="highlight">Resultados</span> sem Comprometer a tua Vida
+                </h1>
+                <p>
+                    Mentora e Formadora em Alta Produtividade & Performance. 
+                    Ajudo profissionais a alcançarem níveis excecionais de produtividade 
+                    mantendo o equilíbrio e bem-estar.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contacto" class="btn btn-primary">Agendar Consulta</a>
+                    <a href="#programas" class="btn btn-secondary">Ver Programas</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-placeholder">CR</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <h2 class="section-title">Perguntas Frequentes</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    Para quem são os programas de coaching?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Os programas são ideais para profissionais, empreendedores, líderes e gestores que querem alcançar alta performance e produtividade sem comprometer o equilíbrio pessoal. Se sentes que tens potencial para mais mas não tens um método claro, estes programas são para ti.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Quanto tempo preciso investir por semana?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Depende do programa escolhido. A mentoria individual requer 1-2 horas por semana, enquanto os programas de grupo têm sessões semanais de 1h30 mais tempo para implementação das ferramentas conforme a tua disponibilidade.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Os programas são online ou presenciais?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Oferecemos ambos os formatos. As sessões de mentoria individual podem ser presenciais ou online via Zoom. Os programas de grupo são maioritariamente online com workshops presenciais opcionais em datas específicas.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Existe garantia de resultados?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Sim! Todos os programas incluem garantia de satisfação. Se nas primeiras semanas sentires que o programa não corresponde às tuas expectativas, trabalhamos contigo para ajustar a abordagem ou oferecemos reembolso parcial conforme política específica de cada programa.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Como funciona o processo de inscrição?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Primeiro, agendas uma consulta estratégica gratuita de 30 minutos. Analisamos a tua situação atual, objetivos e vemos qual o programa mais adequado. Depois, se decidires avançar, enviamos toda a informação e processo de inscrição.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Oferecem certificação?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Sim! Os participantes que completam os programas de grupo e formações corporativas recebem certificado de conclusão emitido pelo CMRFormação, reconhecido na área de desenvolvimento profissional.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contacto">
+        <h2>Pronta para Transformar os Teus Resultados?</h2>
+        <p>Não dês tempo ao tempo, dá vida ao tempo!</p>
+        <a href="mailto:carla@cmrformacao.pt" class="btn btn-white">Agendar Consulta Gratuita</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CMRFormação</h3>
+                <p>Centro de Formação e Desenvolvimento Profissional</p>
+                <p>Especialistas em Alta Produtividade & Performance</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Úteis</h3>
+                <a href="index.html">Página Principal</a>
+                <a href="informatica-tecnologia.html">Informática e Tecnologia</a>
+                <a href="gestao-administracao.html">Gestão e Administração</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contactos</h3>
+                <p>Email: carla@cmrformacao.pt</p>
+                <p>Tel: +351 XXX XXX XXX</p>
+                <p>Porto, Portugal</p>
+            </div>
+            <div class="footer-section">
+                <h3>Segue-me</h3>
+                <div class="social-links">
+                    <a href="#" title="LinkedIn">in</a>
+                    <a href="#" title="Instagram">ig</a>
+                    <a href="#" title="Facebook">fb</a>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 2rem; opacity: 0.7;">© 2025 CMRFormação - Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 30px rgba(0,0,0,0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html><section class="sobre" id="sobre">
+        <h2 class="section-title">Carla Rafael</h2>
+        <p class="sobre-intro">
+            Com mais de 10 anos de experiência, especializo-me em transformar profissionais em 
+            líderes altamente produtivos através de metodologias comprovadas e acompanhamento personalizado.
+        </p>
+        <div class="sobre-content">
+            <div class="certificacao-card">
+                <h3>🎯 Alta Performance</h3>
+                <p>Certificação Internacional em Coaching e Alta Performance</p>
+            </div>
+            <div class="certificacao-card">
+                <h3>⚡ Produtividade</h3>
+                <p>Especialista em Metodologias de Produtividade GTD e Agile</p>
+            </div>
+            <div class="certificacao-card">
+                <h3>🧠 Inteligência Emocional</h3>
+                <p>Formação Avançada em IE e Programação Neurolinguística</p>
+            </div>
+            <div class="certificacao-card">
+                <h3>👥 Liderança</h3>
+                <p>Certificação em Liderança Transformacional e Gestão de Equipas</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="problema">
+        <div class="problema-content">
+            <h2>Sentes que poderias alcançar muito mais?</h2>
+            <p class="problema-intro">
+                A maioria dos profissionais enfrenta estes desafios diariamente:
+            </p>
+            <div class="problemas-list">
+                <div class="problema-item">
+                    <h3>⏰ Falta de Tempo</h3>
+                    <p>Trabalhas muitas horas mas sentes que não avanças. O dia termina e ficam sempre tarefas por fazer.</p>
+                </div>
+                <div class="problema-item">
+                    <h3>😰 Stress Constante</h3>
+                    <p>Vives em modo "apagar fogos", sempre com a sensação de que algo importante está a ser esquecido.</p>
+                </div>
+                <div class="problema-item">
+                    <h3>🎯 Falta de Foco</h3>
+                    <p>Dispersas-te facilmente, a procrastinação domina e as prioridades estão sempre confusas.</p>
+                </div>
+                <div class="problema-item">
+                    <h3>⚖️ Desequilíbrio</h3>
+                    <p>O trabalho invade a vida pessoal. Sentes culpa por não conseguir estar presente onde realmente importa.</p>
+                </div>
+                <div class="problema-item">
+                    <h3>📉 Resultados Aquém</h3>
+                    <p>Sabes que tens potencial mas não consegues materializá-lo em resultados concretos e consistentes.</p>
+                </div>
+                <div class="problema-item">
+                    <h3>🔄 Ciclo Vicioso</h3>
+                    <p>Tentas mudar mas voltas sempre aos mesmos padrões. Falta um método que realmente funcione.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="beneficios">
+        <h2 class="section-title">O Que Vais Conquistar</h2>
+        <div class="beneficios-grid">
+            <div class="beneficio-card">
+                <div class="beneficio-icon">🚀</div>
+                <h3>Produtividade Real</h3>
+                <p>Duplica os teus resultados trabalhando menos horas. Aprende a trabalhar de forma inteligente, não apenas mais.</p>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-icon">🎯</div>
+                <h3>Clareza Absoluta</h3>
+                <p>Define e alcança os teus objetivos mais importantes com um plano de ação claro e executável.</p>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-icon">💎</div>
+                <h3>Alta Performance</h3>
+                <p>Desenvolve as competências dos top performers e eleva o teu padrão de excelência profissional.</p>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-icon">⚖️</div>
+                <h3>Equilíbrio Sustentável</h3>
+                <p>Recupera tempo para ti e para quem amas. Sucesso profissional sem sacrificar a vida pessoal.</p>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-icon">🧠</div>
+                <h3>Mindset Vencedor</h3>
+                <p>Elimina crenças limitantes e desenvolve a mentalidade de quem alcança resultados extraordinários.</p>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-icon">🌟</div>
+                <h3>Transformação Real</h3>
+                <p>Não é teoria. São ferramentas práticas que implementas imediatamente e vês resultados.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="programas" id="programas">
+        <h2 class="section-title">Programas de Acompanhamento</h2>
+        <div class="programas-grid">
+            <div class="programa-card">
+                <div class="programa-header">
+                    <h3>Mentoria Individual</h3>
+                    <p>Acompanhamento personalizado</p>
+                </div>
+                <div class="programa-body">
+                    <ul>
+                        <li>Sessões 1:1 personalizadas</li>
+                        <li>Plano de ação estratégico</li>
+                        <li>Ferramentas de produtividade</li>
+                        <li>Suporte contínuo via WhatsApp</li>
+                        <li>Análise comportamental DISC</li>
+                    </ul>
+                    <a href="#contacto" class="btn btn-primary" style="width: 100%;">Saber Mais</a>
+                </div>
+            </div>
+
+            <div class="programa-card">
+                <div class="programa-header">
+                    <h3>Programas de Grupo</h3>
+                    <p>Crescimento coletivo</p>
+                </div>
+                <div class="programa-body">
+                    <ul>
+                        <li>Sessões em grupo dinâmicas</li>
+                        <li>Networking estratégico</li>
+                        <li>Partilha de experiências</li>
+                        <li>Accountability mútuo</li>
+                        <li>Material exclusivo</li>
+                    </ul>
+                    <a href="#contacto" class="btn btn-primary" style="width: 100%;">Saber Mais</a>
+                </div>
+            </div>
+
+            <div class="programa-card">
+                <div class="programa-header">
+                    <h3>Formação Corporativa</h3>
+                    <p>Para empresas e equipas</p>
+                </div>
+                <div class="programa-body">
+                    <ul>
+                        <li>Workshops personalizados</li>
+                        <li>Formação de líderes</li>
+                        <li>Team building produtivo</li>
+                        <li>Aumento de performance</li>
+                        <li>Consultoria empresarial</li>
+                    </ul>
+                    <a href="#contacto" class="btn btn-primary" style="width: 100%;">Saber Mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testemunhos" id="testemunhos">
+        <h2 class="section-title">O que dizem sobre o meu trabalho</h2>
+        <div class="testemunhos-grid">
+            <div class="testemunho-card">
+                <p>"A Carla transformou completamente a forma como giro o meu tempo e energia. Aprendi ferramentas práticas que uso todos os dias. Recomendo a qualquer pessoa que queira resultados reais!"</p>
+                <div class="testemunho-autor">— Ana Silva, Empresária</div>
+            </div>
+            <div class="testemunho-card">
+                <p>"O programa de mentoria foi uma experiência incrível. A Carla tem uma capacidade única de nos fazer acreditar que somos capazes de muito mais. A minha produtividade aumentou 300%!"</p>
+                <div class="testemunho-autor">— João Pereira, Gestor</div>
+            </div>
+            <div class="testemunho-card">
+                <p>"Participar no programa de grupo foi transformador. Não só aprendi técnicas poderosas, como também conheci pessoas incríveis. O investimento valeu cada cêntimo!"</p>
+                <div class="testemunho-autor">— Maria Costa, Coach</div>
+            </div>
+        </div>
+    </section>
+
+    
